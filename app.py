@@ -13,10 +13,14 @@ import openai
 import nltk
 from nltk.corpus import stopwords
 
-# Ensure the OpenAI API Key is set
+# Check if the environment variable is being accessed correctly
 OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
+st.write(f"OPENAI_API_KEY: {OPENAI_API_KEY}")
+
 if OPENAI_API_KEY is None:
-    raise ValueError("The OPENAI_API_KEY environment variable is not set.")
+    st.error("The OPENAI_API_KEY environment variable is not set.")
+else:
+    st.success("OPENAI_API_KEY is set.")
 
 # Instantiate the OpenAI client
 client = openai.OpenAI(api_key=OPENAI_API_KEY)
