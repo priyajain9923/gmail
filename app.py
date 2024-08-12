@@ -14,7 +14,7 @@ import nltk
 from nltk.corpus import stopwords
 
 # Ensure the OpenAI API Key is set
-OPENAI_API_KEY = st.secrets('OPENAI_API_KEY')
+OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
 if OPENAI_API_KEY is None:
     raise ValueError("The OPENAI_API_KEY environment variable is not set.")
 
