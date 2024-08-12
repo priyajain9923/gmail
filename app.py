@@ -12,20 +12,9 @@ import io
 import openai
 import nltk
 from nltk.corpus import stopwords
+import config
 
-# Access the environment variable
-OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
-st.write(f"OPENAI_API_KEY: {OPENAI_API_KEY}")
-
-if OPENAI_API_KEY is None:
-    st.error("The OPENAI_API_KEY environment variable is not set.")
-else:
-    st.success("OPENAI_API_KEY is set.")
-    openai.api_key = OPENAI_API_KEY
-    client = openai  # Use this line instead of openai.OpenAI(api_key=...)
-
-# Instantiate the OpenAI client
-client = openai.OpenAI(api_key=OPENAI_API_KEY)
+openai.api_key = config.api_key
 
 # Cache the download of NLTK stopwords
 @st.cache_resource
